@@ -6,34 +6,53 @@
 
   <nav class="mainNavigation">
     <ul class="mainNavigation__linksWrapper">
-      <a href="/">
+      <NuxtLink to="/">
         <li>Home</li>
-      </a>
-      <a href="/about">
+      </NuxtLink>
+      <NuxtLink to="/about">
         <li>About</li>
-      </a>
-      <a href="#skills">
+      </NuxtLink>
+      <NuxtLink to="/skills">
         <li>Skills</li>
-      </a>
-      <a href="#work"
-        style="box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
-        <li>Work</li>
-      </a>
-      <a href="#contact">
+      </NuxtLink>
+      <NuxtLink to="/projects">
+        <li>Projects</li>
+      </NuxtLink>
+      <NuxtLink to="/contact">
         <li>Contact</li>
-      </a>
-      <a href="/blog">
+      </NuxtLink>
+      <NuxtLink to="/blog">
         <li>Blog</li>
-      </a>
-      <a href="/brief">
+      </NuxtLink>
+      <NuxtLink to="/brief">
         <li>Brief</li>
-      </a>
+      </NuxtLink>
     </ul>
   </nav>
 </template>
 
 <script>
+export default {
+  mounted() {
+    if (process.client) {
+      const burgerMenu = document.querySelector('.burgerMenu');
+      const mainNavigation = document.querySelector('.mainNavigation');
+      const navigationLinks = mainNavigation.querySelectorAll('a');
 
+      burgerMenu.addEventListener('click', () => {
+        mainNavigation.classList.toggle('open');
+        burgerMenu.classList.toggle('open');
+      });
+
+      navigationLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mainNavigation.classList.remove('open');
+          burgerMenu.classList.remove('open');
+        });
+      });
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -63,6 +82,11 @@
 
   &.open .lineTwo {
     transform: translateY(-0.8rem) rotate(-45deg);
+  }
+
+  @media (max-width: 1049px) {
+    top: 3rem;
+    right: 3rem;
   }
 }
 

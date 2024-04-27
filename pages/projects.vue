@@ -1,8 +1,10 @@
 <template>
-    <BurgerWrapper />
-    <Navigation />
-    <slot />
+    
 </template>
+
+<script>
+
+</script>
 
 <style lang="scss" scoped>
 

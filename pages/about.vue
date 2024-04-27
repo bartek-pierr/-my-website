@@ -18,30 +18,7 @@
 </template>
 
 <script>
-export default {
-    mounted() {
-    if (process.client) {
-      const burgerMenu = document.querySelector('.burgerMenu');
-      const mainNavigation = document.querySelector('.mainNavigation');
-      const lineOne = document.querySelector('.lineOne');
-      const lineTwo = document.querySelector('.lineTwo');
-      const navigationLinks = mainNavigation.querySelectorAll('a');
-      
 
-      burgerMenu.addEventListener('click', () => {
-        mainNavigation.classList.toggle('open');
-        burgerMenu.classList.toggle('open');
-      });
-
-      navigationLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mainNavigation.classList.remove('open');
-          burgerMenu.classList.remove('open');
-        });
-      });
-    }
-  }
-};
 </script>
 
 <style lang="scss" scoped>

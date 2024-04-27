@@ -1,8 +1,9 @@
 <template>
-  <div class="burgerWrapper"></div>
   <section class="hero">
     <div class="hero__content">
-      <p>Bartek Pierr Production</p>
+      <div>
+        <img src="assets/img/logo-hero.svg" alt="">
+      </div>
       <h1>Creative developer specialized in <span class="mainBox"><span class="mainBox__main">beautiful<img
               class="mainBox-main--img" src="assets/img/doodles.svg" alt=""></span><span
             class="mainBox__rotate">crazy</span></span> creative sh<span class="colorTxt">*</span>t</h1>
@@ -35,49 +36,10 @@
 </template>
 
 <script>
-export default {
-  mounted() {
-    if (process.client) {
-      const burgerMenu = document.querySelector('.burgerMenu');
-      const mainNavigation = document.querySelector('.mainNavigation');
-      const navigationLinks = mainNavigation.querySelectorAll('a');
-
-      burgerMenu.addEventListener('click', () => {
-        mainNavigation.classList.toggle('open');
-        burgerMenu.classList.toggle('open');
-      });
-
-      navigationLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mainNavigation.classList.remove('open');
-          burgerMenu.classList.remove('open');
-        });
-      });
-    }
-  }
-}
-
-
-
-
-
-
-
 
 </script>
 
 <style lang="scss" scoped>
-.burgerWrapper {
-  clip-path: polygon(100% 97%, 100% 0, 15% 0, 0 100%);
-  width: 8rem;
-  height: 8rem;
-  background-color: $color-white;
-  position: fixed;
-  top: 3rem;
-  right: 3.5rem;
-  z-index: 999;
-}
-
 .hero {
   display: flex;
   height: 100vh;
@@ -89,10 +51,19 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 2rem;
     text-align: left;
     padding: 10rem 10rem 4rem 10rem;
+
+    & div {
+      height: 6rem;
+
+      & img {
+        width: 100%;
+        height: 100%;
+      }
+    }
 
     & h1 {
       font-size: 4rem;
@@ -118,6 +89,7 @@ export default {
       width: 100%;
       text-align: center;
       padding: 8rem 4rem 4rem 4rem;
+      align-items: center;
     }
   }
 
@@ -179,7 +151,6 @@ export default {
 .homeAbout {
   display: flex;
   justify-content: space-between;
-  height: 100vh;
   width: 100%;
   background-color: $color-black;
   padding: 10rem;
