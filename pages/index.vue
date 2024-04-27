@@ -7,7 +7,8 @@
       <h1>Creative developer specialized in <span class="mainBox"><span class="mainBox__main">beautiful<img
               class="mainBox-main--img" src="assets/img/doodles.svg" alt=""></span><span
             class="mainBox__rotate">crazy</span></span> creative sh<span class="colorTxt">*</span>t</h1>
-      <p>I create amazing websites and graphics for amazing brands, and my creativity is off the charts. Don't believe
+      <p>I create amazing websites and graphics for amazing brands, and my creativity is off the charts. Don't
+        believe
         me? Check out my projects and don't be a stranger, I'm just a call away.</p>
     </div>
 
@@ -22,9 +23,12 @@
       <h2>I help businesses transform emotions into implementation of <span>solutions</span> and
         <span>automations</span>.
       </h2>
+      <div>
+        <img src="assets/img/photo-about.png" alt="">
+      </div>
     </div>
     <div class="homeAbout__right">
-      <div class="homeAbout__right--imgWrapper">
+      <div class="homeAbout__right--imgWrapper" id="floatBox">
         <img src="assets/img/box-doodle-2.svg" alt="">
       </div>
       <p>Hey you! Bartek Pierr has been operating as a brand since 2021. I wanted to create a web design and
@@ -36,6 +40,39 @@
 </template>
 
 <script>
+export default {
+  mounted() {
+    if (process.client) {
+      const floatBox = document.getElementById('floatBox');
+      let lastScrollTop = window.scrollY || document.documentElement.scrollTop;
+      let isScrollingDown = true;
+      const easing = 0.01;
+
+      const animateFloatBox = () => {
+        const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+        const deltaY = currentScrollTop - lastScrollTop;
+
+        if (deltaY > 0) {
+          isScrollingDown = true;
+        } else if (deltaY < 0) {
+          isScrollingDown = false;
+        }
+
+        const targetTranslateY = isScrollingDown ? 100 : -100;
+
+        const translateY = parseFloat(floatBox.style.transform.replace('translateY(', '').replace('px)', '')) || 0;
+        const interpolatedTranslateY = translateY + (targetTranslateY - translateY) * easing;
+
+        floatBox.style.transform = `translateY(${interpolatedTranslateY}px)`;
+
+        lastScrollTop = currentScrollTop;
+        requestAnimationFrame(animateFloatBox);
+      };
+
+      animateFloatBox();
+    }
+  }
+};
 
 </script>
 
@@ -87,6 +124,7 @@
 
     @media (max-width: 1049px) {
       width: 100%;
+      height: 60%;
       text-align: center;
       padding: 8rem 4rem 4rem 4rem;
       align-items: center;
@@ -111,6 +149,7 @@
 
     @media (max-width: 1049px) {
       width: 100%;
+      height: 40%;
     }
   }
 
@@ -153,7 +192,7 @@
   justify-content: space-between;
   width: 100%;
   background-color: $color-black;
-  padding: 10rem;
+  padding: 10rem 20rem;
 
   &__left {
     display: flex;
@@ -170,10 +209,36 @@
       color: $color-primary;
       font-size: 4rem;
       font-weight: 800;
+      margin-bottom: 4rem;
 
       & span {
         color: $color-white;
       }
+
+      @media (max-width: 1049px) {
+        font-size: 3rem;
+      }
+    }
+
+    & div {
+      height: 40rem;
+      width: 40rem;
+      background-color: $color-primary;
+      clip-path: polygon(100% 97%, 100% 0, 0 0, 19% 84%);
+
+      &:hover {
+        background-color: $color-white;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 1049px) {
+      width: 100%;
     }
   }
 
@@ -191,12 +256,28 @@
         width: 100%;
         height: 100%;
       }
+
+      @media (max-width: 1049px) {
+        display: none;
+      }
     }
 
     & p {
       color: $color-white;
       font-family: monospace;
     }
+
+    @media (max-width: 1049px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 1049px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    padding: 4rem;
   }
 }
 </style>

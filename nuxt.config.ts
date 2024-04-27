@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ["@nuxt/ui"],
   css: ["@/assets/scss/main.scss"],
   vite: {
     css: {
