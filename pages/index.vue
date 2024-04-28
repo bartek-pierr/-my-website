@@ -16,7 +16,7 @@
       <img src="assets/img/photo-hero.png" alt="">
     </div>
 
-    <a href="#homeAbout" class="scrollDown"><span>&#8592;</span> <p>scroll</p></a>
+    <a href="#homeAbout" class="scrollDown"><span class="scrollArrow">&#8592;</span> <p>scroll</p></a>
   </section>
 
   <section class="homeAbout" id="homeAbout">
@@ -175,13 +175,16 @@ export default {
     font-size: 1.2rem;
     font-weight: 800;
     letter-spacing: 0.1rem;
+
+    .scrollArrow {
     transition: all 0.5 ease-in-out;
+    }
 
     & span {
       font-size: 2rem;
     }
 
-    &:hover span {
+    &:hover .scrollArrow {
       transform: translateX(-1rem);
     }
   }
