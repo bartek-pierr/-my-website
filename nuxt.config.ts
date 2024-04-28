@@ -12,9 +12,9 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Frankee.',
+      title: 'Bartek Pierr.',
       meta: [
-        { name: 'description', content: 'Pierwsza agencja social media w Karkonoszach.' },
+        { name: 'description', content: 'Creative developer specialized in beautiful/crazy creative sh*t.' },
         { name: 'author', content: 'Bartek Pierr' }
       ],
       link: [
