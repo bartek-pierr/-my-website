@@ -21,10 +21,10 @@
       <NuxtLink to="/contact">
         <li>Contact</li>
       </NuxtLink>
-      <NuxtLink to="/blog">
+      <NuxtLink to="/blog" style="display: none;">
         <li>Blog</li>
       </NuxtLink>
-      <NuxtLink to="/brief">
+      <NuxtLink to="/brief" style="display: none;">
         <li>Brief</li>
       </NuxtLink>
     </ul>
@@ -98,12 +98,17 @@ export default {
   height: 100vh;
   background-image: url(assets/img/navigation-bg.jpg);
   background-size: cover;
+  background-attachment: fixed;
   transition: top 0.5s ease;
   z-index: 999;
   padding: 10rem;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
+  align-items: center;
+
+  & .router-link-exact-active li {
+      opacity: 1;
+    }
 
   &::after {
     content: "";
@@ -121,11 +126,6 @@ export default {
     display: flex;
     flex-direction: column;
     z-index: 10000;
-
-    & .router-link-exact-active {
-      opacity: 1;
-      color: white;
-    }
 
     & a li {
       color: $color-white;

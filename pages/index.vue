@@ -15,6 +15,8 @@
     <div class="hero__photo">
       <img src="assets/img/photo-hero.png" alt="">
     </div>
+
+    <a href="#homeAbout" class="scrollDown"><span>&#8592;</span> <p>scroll</p></a>
   </section>
 
   <section class="homeAbout" id="homeAbout">
@@ -36,6 +38,10 @@
         along the way. Over the years, I realized that actually, I was quite good at this stuff. But my work best speaks
         for itself, so take a look at my projects below.</p>
     </div>
+  </section>
+
+  <section class="carousel">
+    
   </section>
 </template>
 
@@ -156,6 +162,29 @@ export default {
   @media (max-width: 1049px) {
     flex-direction: column;
   }
+
+  .scrollDown {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    rotate: -90deg;
+    position: absolute;
+    bottom: 8rem;
+    left: 2rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    transition: all 0.5 ease-in-out;
+
+    & span {
+      font-size: 2rem;
+    }
+
+    &:hover span {
+      transform: translateX(-1rem);
+    }
+  }
 }
 
 .mainBox {
@@ -192,7 +221,7 @@ export default {
   justify-content: space-between;
   width: 100%;
   background-color: $color-black;
-  padding: 10rem 20rem;
+  padding: 10rem;
 
   &__left {
     display: flex;
@@ -234,6 +263,10 @@ export default {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      @media (max-width: 1049px) {
+        width: 100%;
       }
     }
 

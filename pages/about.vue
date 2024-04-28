@@ -2,7 +2,7 @@
     <section class="aboutHeader">
         <div class="aboutHeader__text">
             <h6>About Me</h6>
-            <h2>I'am just making good sh*t<br><span> like there's no tomorrow</span></h2>
+            <h2>I'am just making good sh<span>*</span>t<br><span> like there's no tomorrow</span></h2>
             <p>I am a talented web developer and graphic designer with a strong focus on crazy, creative projects. I
                 create amazing solutions to provide companies, agencies and individuals, all kinds of websites,
                 applications and graphic materials they need. In style. And with lots of laughs guaranteed. I love my
